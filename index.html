@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Unique Profile</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="welcome-screen">
+        <h1>Welcome to Profile Builder</h1>
+        <p>Click the link below to generate your unique profile!</p>
+        <a href="#" id="create-profile-link">**CLICK HERE TO START**</a>
+    </div>
+
+    <div id="profile-container" class="hidden">
+        
+        <div id="profile-card">
+            
+            <img id="profile-pfp" src="default-pfp.gif" alt="Profile Picture GIF">
+            
+            <h2 id="profile-name">@ProfileUser123</h2>
+            
+            <p id="profile-bio" class="section-text">
+                🌟 **Bio:** I love coding and coffee! Exploring the world one step at a time.
+            </p>
+            
+            <div id="profile-description" class="section-text">
+                <p>A longer **Description** of me and my interests:</p>
+                <ul>
+                    <li>Favorite hobby: Playing guitar</li>
+                    <li>Current project: Building this website!</li>
+                    <li>Location: [Detected Location Placeholder]</li>
+                </ul>
+            </div>
+            
+            <div id="timer-box">
+                <p>📍 Current Location Time:</p>
+                <h3 id="current-time">--:--:--</h3>
+            </div>
+            
+            <small>Profile created on: <span id="creation-date"></span></small>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
