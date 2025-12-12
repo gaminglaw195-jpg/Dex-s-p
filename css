@@ -1,0 +1,111 @@
+/* General Styling & Background GIF */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    /* Use a placeholder GIF URL here. It will cover the whole page. */
+    background-image: url('https://media.giphy.com/media/l41JRsHHj3T74sYg0/giphy.gif'); /* REPLACE WITH YOUR GIF URL */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Optional: Makes the background static */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Welcome Screen Styling */
+#welcome-screen {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent black box */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.7);
+    max-width: 90%;
+}
+
+#create-profile-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 15px 30px;
+    background-color: #00ffff; /* Neon cyan */
+    color: #000;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.2em;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+#create-profile-link:hover {
+    background-color: #00dddd;
+    transform: scale(1.05);
+}
+
+/* Profile Card Styling */
+#profile-container {
+    width: 100%;
+    max-width: 600px;
+    animation: fadeIn 1s ease-out; /* Added a fade-in effect */
+}
+
+#profile-card {
+    background: rgba(0, 0, 0, 0.85); /* Slightly darker, semi-transparent black */
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    border: 3px solid #00ffff; /* Neon border */
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.5);
+}
+
+#profile-pfp {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #ff00ff; /* Neon magenta border for PFP */
+    margin-bottom: 15px;
+    box-shadow: 0 0 15px #ff00ff;
+}
+
+#profile-name {
+    color: #ff00ff; /* Neon magenta text */
+    margin-bottom: 20px;
+}
+
+.section-text {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+/* Timer Box Styling */
+#timer-box {
+    margin-top: 20px;
+    padding: 15px;
+    border: 2px dashed #00ffff;
+    background: rgba(0, 255, 255, 0.1);
+}
+
+#current-time {
+    font-size: 3em;
+    font-weight: bold;
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff;
+    margin: 10px 0;
+}
+
+/* Utility Class */
+.hidden {
+    display: none !important;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
