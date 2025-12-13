@@ -55,4 +55,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Optional: Pre-fill a placeholder PFP GIF if needed (assuming 'default-pfp.gif' is a GIF file)
     // To use an external GIF:
-    document.getElementById('profile-pfp').src = 'https://tenor.com/view/cat-licking-popsicle-gif-3122588929262013745
+'https://tenor.com/view/cat-licking-popsicle-gif-3122588929262013745
