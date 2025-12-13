@@ -8,7 +8,7 @@
         body { 
             font-family: 'Segoe UI', sans-serif; 
             text-align: center; 
-            /* Background GIF Setup */
+            /* FIXED: Using the direct media link for Lelouch background */
             background: url('https://media.tenor.com/P_V_3I_RWhQAAAAC/lelouch-peak-fiction.gif') no-repeat center center fixed; 
             background-size: cover;
             color: white;
@@ -17,19 +17,20 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            background-color: #000; /* Fallback to black if GIF fails */
         }
         
-        /* Overlay to make the text readable over the background GIF */
+        /* Dark overlay so you can actually see the text */
         body::before {
             content: "";
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.6); /* Darkens the background slightly */
+            background: rgba(0, 0, 0, 0.5); 
             z-index: -1;
         }
 
         .container { 
-            background: rgba(26, 0, 51, 0.9); /* Semi-transparent dark purple card */
+            background: rgba(26, 0, 51, 0.85); 
             max-width: 400px; 
             width: 85%;
             padding: 25px; 
@@ -37,6 +38,7 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.8); 
             border: 1px solid #4b0082;
             position: relative;
+            backdrop-filter: blur(5px); /* Makes the card look modern */
         }
 
         .gif-box {
@@ -49,7 +51,14 @@
             background: black;
         }
 
-        .username { color: #ff0000; font-size: 2.2rem; font-weight: bold; margin: 15px 0 5px 0; text-shadow: 2px 2px 4px #000; }
+        .username { 
+            color: #ff0000; 
+            font-size: 2.2rem; 
+            font-weight: bold; 
+            margin: 15px 0 5px 0; 
+            text-shadow: 2px 2px 4px #000; 
+        }
+
         .bio { font-style: italic; color: #e9d5ff; margin-bottom: 15px; font-size: 1.1rem; }
         #time { font-family: monospace; color: #c084fc; font-size: 1.4rem; font-weight: bold; }
         hr { border: 0; border-top: 1px solid #4b0082; margin: 20px 0; }
