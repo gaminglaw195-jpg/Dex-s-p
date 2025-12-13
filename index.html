@@ -6,90 +6,76 @@
     <title>Dex's Profile</title>
     <style>
         body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            font-family: 'Segoe UI', sans-serif; 
             text-align: center; 
-            background: #2e004f; /* Dark Purple Background */
+            /* Background GIF Setup */
+            background: url('https://media.tenor.com/P_V_3I_RWhQAAAAC/lelouch-peak-fiction.gif') no-repeat center center fixed; 
+            background-size: cover;
             color: white;
-            padding: 20px; 
             margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
         }
+        
+        /* Overlay to make the text readable over the background GIF */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.6); /* Darkens the background slightly */
+            z-index: -1;
+        }
+
         .container { 
-            background: #1a0033; /* Darker Purple Card */
-            max-width: 450px; 
-            width: 90%;
-            padding: 30px; 
+            background: rgba(26, 0, 51, 0.9); /* Semi-transparent dark purple card */
+            max-width: 400px; 
+            width: 85%;
+            padding: 25px; 
             border-radius: 20px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8); 
             border: 1px solid #4b0082;
-        }
-        
-        img { 
-            max-width: 100%; 
-            border-radius: 15px; 
-            border: 3px solid #7c3aed; 
-        }
-        
-        .username { 
-            color: #ff0000; /* Red Name */
-            font-size: 2rem; 
-            font-weight: bold;
-            margin-top: 15px; 
-            margin-bottom: 5px;
-        }
-        
-        .bio { 
-            font-style: italic; 
-            color: #e9d5ff; 
-            margin: 10px 0;
-            font-size: 1.1rem;
+            position: relative;
         }
 
-        .location {
-            color: #a78bfa;
-            margin-bottom: 20px;
+        .gif-box {
+            width: 100%;
+            height: 250px;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 3px solid #7c3aed;
+            position: relative;
+            background: black;
         }
 
-        #time { 
-            font-family: monospace; 
-            color: #c084fc; 
-            font-size: 1.2rem;
-            margin-top: 10px;
-        }
-
-        hr {
-            border: 0; 
-            border-top: 1px solid #4b0082; 
-            margin: 20px 0;
-        }
+        .username { color: #ff0000; font-size: 2.2rem; font-weight: bold; margin: 15px 0 5px 0; text-shadow: 2px 2px 4px #000; }
+        .bio { font-style: italic; color: #e9d5ff; margin-bottom: 15px; font-size: 1.1rem; }
+        #time { font-family: monospace; color: #c084fc; font-size: 1.4rem; font-weight: bold; }
+        hr { border: 0; border-top: 1px solid #4b0082; margin: 20px 0; }
+        .location { color: #a78bfa; margin-bottom: 10px; }
     </style>
 </head>
 <body onload="startClock()">
 
     <div class="container">
-        <img src="https://media.tenor.com/y27v74q64p8AAAAC/cat-licking-popsicle.gif" alt="Cat GIF">
+        <div class="gif-box">
+            <iframe src="https://giphy.com/embed/mlvseq9yvZhba" width="100%" height="100%" style="position:absolute; top:0; left:0; border:none;" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+        </div>
         
         <h2 class="username">@dex</h2>
-        
         <p class="bio">I love my mom dad and my friends❤️</p>
-        
         <p class="location">📍 Location: Europe/Berlin</p>
         
         <hr>
-        
-        <p style="font-size: 0.9rem; color: #8b5cf6;">Current Time:</p>
+        <p style="font-size: 0.8rem; color: #8b5cf6; margin-bottom: 5px;">CURRENT TIME</p>
         <h3 id="time"></h3>
     </div>
 
     <script>
         function startClock() {
-            // Update the time every second
             setInterval(() => {
-                const now = new Date();
-                document.getElementById('time').innerText = now.toLocaleTimeString();
+                document.getElementById('time').innerText = new Date().toLocaleTimeString();
             }, 1000);
         }
     </script>
