@@ -8,7 +8,6 @@
         body { 
             font-family: 'Segoe UI', sans-serif; 
             text-align: center; 
-            /* FIXED: Using the direct media link for Lelouch background */
             background: url('https://media.tenor.com/P_V_3I_RWhQAAAAC/lelouch-peak-fiction.gif') no-repeat center center fixed; 
             background-size: cover;
             color: white;
@@ -17,10 +16,9 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background-color: #000; /* Fallback to black if GIF fails */
+            background-color: #000;
         }
         
-        /* Dark overlay so you can actually see the text */
         body::before {
             content: "";
             position: absolute;
@@ -38,18 +36,18 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.8); 
             border: 1px solid #4b0082;
             position: relative;
-            backdrop-filter: blur(5px); /* Makes the card look modern */
+            backdrop-filter: blur(5px);
         }
 
         .gif-box {
             width: 100%;
-            height: 250px;
             border-radius: 15px;
             overflow: hidden;
             border: 3px solid #7c3aed;
-            position: relative;
             background: black;
         }
+
+        img { width: 100%; display: block; }
 
         .username { 
             color: #ff0000; 
@@ -69,12 +67,12 @@
 
     <div class="container">
         <div class="gif-box">
-            <iframe src="https://giphy.com/embed/mlvseq9yvZhba" width="100%" height="100%" style="position:absolute; top:0; left:0; border:none;" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+            <img src="https://media.tenor.com/y27v74q64p8AAAAC/cat-licking-popsicle.gif" alt="Popsicle Cat">
         </div>
         
         <h2 class="username">@dex</h2>
         <p class="bio">I love my mom dad and my friends❤️</p>
-        <p class="location">📍 Location: Europe/Berlin</p>
+        <p>📍 Location: Europe/Berlin</p>
         
         <hr>
         <p style="font-size: 0.8rem; color: #8b5cf6; margin-bottom: 5px;">CURRENT TIME</p>
