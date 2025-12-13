@@ -1,36 +1,58 @@
-function updateTime() {
+// Function to update the clock
+function updateClock() {
     const now = new Date();
-    // Format the time as HH:MM:SS PM/AM
-    const timeOptions = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true };
-    const formattedTime = now.toLocaleTimeString('en-US', timeOptions);
+    // Options to get a localized time (e.g., 9:45:30 PM)
+    const options = { 
+        hour: '2-digit', 
+        minute: '2-digit', 
+        second: '2-digit', 
+        hour12: true 
+    };
     
-    // Format the date as Month Day, Year
-    const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
-    const formattedDate = now.toLocaleDateString('en-US', dateOptions);
-
-    document.getElementById('current-time').textContent = formattedTime;
-    document.getElementById('profile-date').textContent = "Profile created on: " + formattedDate;
+    // Format the time
+    const timeString = now.toLocaleTimeString(undefined, options);
+    
+    // Get the user's general time zone/location (e.g., 'Central European Time')
+    const locationName = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    
+    // Update the HTML elements
+    document.getElementById('current-time').textContent = timeString;
+    // Update the placeholder in the description
+    const descriptionDiv = document.getElementById('profile-description');
+    if (descriptionDiv) {
+        descriptionDiv.innerHTML = descriptionDiv.innerHTML.replace(
+            '[Detected Location Placeholder]', 
+            locationName
+        );
+    }
 }
 
-function buildProfile() {
-    // 1. Hide the "CLICK HERE TO START" link
-    document.getElementById('profile-builder-link').style.display = 'none';
+// Function to handle the profile creation click
+document.addEventListener('DOMContentLoaded', () => {
+    const welcomeScreen = document.getElementById('welcome-screen');
+    const profileContainer = document.getElementById('profile-container');
+    const createLink = document.getElementById('create-profile-link');
+    const creationDateSpan = document.getElementById('creation-date');
 
-    // 2. Hide the GIF placeholder text and apply background color
-    const gifContainer = document.getElementById('profile-gif-container');
-    gifContainer.textContent = ''; // Remove the "**Profile Picture Gif**" text
-    gifContainer.style.backgroundColor = 'black';
-    gifContainer.style.color = 'white';
-    gifContainer.innerHTML = '<div class="confetti-animation">✨ PROFILE GENERATED ✨</div>';
+    createLink.addEventListener('click', (event) => {
+        event.preventDefault(); // Stop the link from jumping/reloading
+        
+        // 1. Hide the welcome screen
+        welcomeScreen.classList.add('hidden');
+        
+        // 2. Show the profile
+        profileContainer.classList.remove('hidden');
 
-    // 3. Make the details visible
-    document.getElementById('profile-details').classList.remove('profile-details-hidden');
-    document.getElementById('profile-details').classList.add('profile-details-visible');
+        // 3. Set the profile creation date
+        const today = new Date();
+        const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+        creationDateSpan.textContent = today.toLocaleDateString(undefined, dateOptions);
 
-    // 4. Update the location line (Placeholder for simplicity)
-    document.getElementById('profile-location-li').innerHTML = 'Location: Europe/Berlin';
+        // 4. Start the live timer
+        updateClock(); // Initial call
+        setInterval(updateClock, 1000); // Update every second
+    });
 
-    // 5. Start the clock
-    updateTime(); // Initial call
-    setInterval(updateTime, 1000); // Update every second
-}
+    // Optional: Pre-fill a placeholder PFP GIF if needed (assuming 'default-pfp.gif' is a GIF file)
+    // To use an external GIF:
+    document.getElementById('profile-pfp').src = 'https://tenor.com/view/cat-licking-popsicle-gif-3122588929262013745
