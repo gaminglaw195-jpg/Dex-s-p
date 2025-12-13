@@ -3,48 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Unique Profile</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Dex's Profile</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            text-align: center; 
+            background: #2e004f; /* Dark Purple Background */
+            color: white;
+            padding: 20px; 
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container { 
+            background: #1a0033; /* Darker Purple Card */
+            max-width: 450px; 
+            width: 90%;
+            padding: 30px; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5); 
+            border: 1px solid #4b0082;
+        }
+        h1 { font-size: 1.5rem; margin-bottom: 20px; color: #d8b4fe; }
+        
+        #start-btn { 
+            background: #7c3aed; 
+            color: white; 
+            padding: 12px 25px; 
+            text-decoration: none; 
+            border-radius: 50px; 
+            display: inline-block; 
+            cursor: pointer; 
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        #start-btn:hover { background: #6d28d9; transform: scale(1.05); }
+
+        .hidden { display: none; }
+        
+        img { 
+            max-width: 100%; 
+            border-radius: 15px; 
+            margin-top: 15px; 
+            border: 3px solid #7c3aed; 
+        }
+        
+        /* UPDATED: The username is now RED */
+        .username { 
+            color: #ff0000; 
+            font-size: 1.6rem; 
+            font-weight: bold;
+            margin-top: 15px; 
+        }
+        
+        .bio { font-style: italic; color: #e9d5ff; margin: 10px 0; }
+        #time { font-family: monospace; color: #c084fc; font-size: 1.2rem; }
+    </style>
 </head>
 <body>
 
-    <div id="welcome-screen">
-        <h1>Welcome to dex's profile</h1>
-        <p>Click the link below to generate your unique profile!</p>
-        <a href="#" id="create-profile-link">**CLICK HERE TO START**</a>
-    </div>
+    <div class="container">
+        <div id="setup">
+            <h1>Welcome to Dex's Profile</h1>
+            <p>Click below to enter</p>
+            <div id="start-btn" onclick="showProfile()">**CLICK HERE TO START**</div>
+        </div>
 
-    <div id="profile-container" class="hidden">
-        
-        <div id="profile-card">
-            
-            <img id="profile-pfp" src="default-pfp.gif" alt="Profile Picture GIF">
-            
-            <h2 id="profile-name">@dex</h2>
-            
-            <p id="profile-bio" class="section-text">
-                🌟 **Bio:** I love my dad and mom very much❤️
-            </p>
-            
-            <div id="profile-description" class="section-text">
-                <p>A longer **Description** of me and my interests:</p>
-                <ul>
-                    <li>Favorite hobby: Playing piano</li>
-                    <li>Current project: Building this website😭!</li>
-                    <li>Location: [Detected Location Placeholder]</li>
-                </ul>
-            </div>
-            
-            <div id="timer-box">
-                <p>📍 Current Location Time:</p>
-                <h3 id="current-time">--:--:--</h3>
-            </div>
-            
-            <small>Profile created on: <span id="creation-date"></span></small>
-
+        <div id="profile" class="hidden">
+            <img src="https://media.tenor.com/y27v74q64p8AAAAC/cat-licking-popsicle.gif" alt="Cat GIF">
+            <h2 class="username">@dex</h2>
+            <p class="bio">I love my mom dad and my friends❤️</p>
+            <p>📍 Location: Europe/Berlin</p>
+            <hr style="border: 0; border-top: 1px solid #4b0082; margin: 20px 0;">
+            <h3 id="time"></h3>
         </div>
     </div>
 
-    <script <script src="script.js"></script>
+    <script>
+        function showProfile() {
+            document.getElementById('setup').classList.add('hidden');
+            document.getElementById('profile').classList.remove('hidden');
+            
+            setInterval(() => {
+                document.getElementById('time').innerText = new Date().toLocaleTimeString();
+            }, 1000);
+        }
+    </script>
 </body>
 </html>
